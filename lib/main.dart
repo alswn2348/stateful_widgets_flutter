@@ -13,10 +13,29 @@ class StApp extends StatefulWidget {
 
 class _StAppState extends State<StApp> {
   int counter = 0;
+  bool a = true;
+
+  @override
+  void initState() {
+    super.initState();
+    print('initState!!');
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print('dispose!!');
+  }
 
   @override
   Widget build(BuildContext context) {
+    print('build!!');
     return MaterialApp(
+      theme: ThemeData(
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(color: Colors.red),
+        ),
+      ),
       home: Scaffold(
         backgroundColor: Colors.white,
         body: Center(
@@ -32,7 +51,8 @@ class _StAppState extends State<StApp> {
             IconButton(
               onPressed: onClicked,
               icon: const Icon(Icons.add_box),
-            )
+            ),
+            const MyLageTitle(),
           ]),
         ),
       ),
@@ -43,5 +63,20 @@ class _StAppState extends State<StApp> {
     setState(() {
       counter = counter + 1;
     });
+  }
+}
+
+class MyLageTitle extends StatelessWidget {
+  const MyLageTitle({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'My Lage Title',
+      style: TextStyle(
+          fontSize: 28, color: Theme.of(context).textTheme.titleLarge?.color),
+    );
   }
 }
