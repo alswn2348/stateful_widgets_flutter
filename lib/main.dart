@@ -13,23 +13,16 @@ class StApp extends StatefulWidget {
 
 class _StAppState extends State<StApp> {
   int counter = 0;
-  bool a = true;
+  bool showTitle = true;
 
-  @override
-  void initState() {
-    super.initState();
-    print('initState!!');
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    print('dispose!!');
+  void toggleTitle() {
+    setState(() {
+      showTitle = !showTitle;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    print('build!!');
     return MaterialApp(
       theme: ThemeData(
         textTheme: const TextTheme(
@@ -52,7 +45,9 @@ class _StAppState extends State<StApp> {
               onPressed: onClicked,
               icon: const Icon(Icons.add_box),
             ),
-            const MyLageTitle(),
+            showTitle ? const MyLageTitle() : const Text('nothing'),
+            IconButton(
+                onPressed: toggleTitle, icon: const Icon(Icons.remove_red_eye))
           ]),
         ),
       ),
@@ -66,13 +61,31 @@ class _StAppState extends State<StApp> {
   }
 }
 
-class MyLageTitle extends StatelessWidget {
+class MyLageTitle extends StatefulWidget {
   const MyLageTitle({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<MyLageTitle> createState() => _MyLageTitleState();
+}
+
+class _MyLageTitleState extends State<MyLageTitle> {
+  @override
+  void initState() {
+    super.initState();
+    print('initState!!');
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print('dispose!!');
+  }
+
+  @override
   Widget build(BuildContext context) {
+    print('build!!');
     return Text(
       'My Lage Title',
       style: TextStyle(
