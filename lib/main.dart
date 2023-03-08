@@ -13,6 +13,7 @@ class StApp extends StatefulWidget {
 
 class _StAppState extends State<StApp> {
   int counter = 0;
+<<<<<<< HEAD
   bool showTitle = true;
 
   void toggleTitle() {
@@ -20,15 +21,12 @@ class _StAppState extends State<StApp> {
       showTitle = !showTitle;
     });
   }
+=======
+>>>>>>> parent of 2913795 (degin : add theme)
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        textTheme: const TextTheme(
-          titleLarge: TextStyle(color: Colors.red),
-        ),
-      ),
       home: Scaffold(
         backgroundColor: Colors.white,
         body: Center(
@@ -44,10 +42,14 @@ class _StAppState extends State<StApp> {
             IconButton(
               onPressed: onClicked,
               icon: const Icon(Icons.add_box),
+<<<<<<< HEAD
             ),
             showTitle ? const MyLageTitle() : const Text('nothing'),
             IconButton(
                 onPressed: toggleTitle, icon: const Icon(Icons.remove_red_eye))
+=======
+            )
+>>>>>>> parent of 2913795 (degin : add theme)
           ]),
         ),
       ),
@@ -60,6 +62,7 @@ class _StAppState extends State<StApp> {
     });
   }
 }
+<<<<<<< HEAD
 
 class MyLageTitle extends StatefulWidget {
   const MyLageTitle({
@@ -93,3 +96,5 @@ class _MyLageTitleState extends State<MyLageTitle> {
     );
   }
 }
+=======
+>>>>>>> parent of 2913795 (degin : add theme)
